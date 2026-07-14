@@ -1,5 +1,8 @@
 name: Deploy Sonora to GitHub Pages
 
+# mainブランチの outputs/ だけをWebサイトとして公開します。
+# 詳しい流れは docs/DEPLOYMENT.md を参照してください。
+
 on:
   push:
     branches: [main]

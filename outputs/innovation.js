@@ -1,3 +1,9 @@
+/**
+ * Sonora Creative Network
+ *
+ * index.htmlの基本機能を再利用して、実験的な体験を追加するファイルです。
+ * 機能一覧と読み方: ../docs/CODE_WALKTHROUGH.md
+ */
 (() => {
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
