@@ -14,7 +14,10 @@ flowchart TD
     DB --> POSTS[鼻歌・募集・応募]
     PUSH[git push main] --> ACTION[GitHub Actions]
     ACTION --> PAGES[GitHub Pages outputs/]
-    FUTURE[Supabase 本番構成] -. 将来置換 .-> DB
+    CLOUD[supabase-client.js] --> AUTH[Supabase Auth]
+    CLOUD --> PG[PostgreSQL + RLS]
+    CLOUD --> STORAGE[Supabase Storage]
+    CLOUD -. 未設定時 .-> DB
 ```
 
 ## ブラウザでページが開く順番
@@ -111,4 +114,3 @@ git push origin main
   → outputs/をPages artifactへ変換
   → GitHub Pagesへ公開
 ```
-

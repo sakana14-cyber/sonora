@@ -36,11 +36,14 @@ sonora/
 │  ├─ ARCHITECTURE.md            # ファイル同士と処理のつながり
 │  ├─ CODE_WALKTHROUGH.md        # 主要関数を読む順番
 │  ├─ DATA_AND_SECURITY.md       # 保存データとセキュリティ
-│  └─ DEPLOYMENT.md              # GitHub Pagesの公開手順
+│  ├─ DEPLOYMENT.md              # GitHub Pagesの公開手順
+│  └─ SUPABASE_SETUP.md          # Supabaseの作成・接続手順
 ├─ outputs/
 │  ├─ index.html                 # 基本画面、録音、音声、DB、プレイヤー
 │  ├─ innovation.css             # Creative Network機能の見た目
 │  ├─ innovation.js              # バトル、DNA、動画解析デモなど
+│  ├─ supabase-config.js         # 公開可能なSupabase接続値
+│  ├─ supabase-client.js         # Auth・DB・Storage通信
 │  └─ .nojekyll                  # GitHub Pagesへそのまま配信する設定
 ├─ supabase-setup.sql            # 本番DB・Storage・権限の設計案
 ├─ .github/workflows/
@@ -111,3 +114,5 @@ git push origin main
 6. テスト・監視・利用規約を整備
 
 保存データと権限については [docs/DATA_AND_SECURITY.md](docs/DATA_AND_SECURITY.md) を確認してください。
+
+Supabaseを接続するときは [docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md) の順番で進めてください。
