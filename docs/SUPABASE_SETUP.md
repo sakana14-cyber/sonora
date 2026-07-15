@@ -84,18 +84,19 @@ http://localhost:5500/**
 https://sakana14-cyber.github.io/sonora/**
 ```
 
-## 6. 次に行うUI接続
+## 6. 接続を確認する
 
-接続値を設定したあと、現在のログインフォームと投稿フォームを `SonoraCloud` APIへ切り替えます。
+UIは接続値の有無に応じて自動的に保存先を切り替えます。設定がある場合はSupabase Auth・Database・Storage、設定がない場合は従来のlocalStorage・IndexedDBを使います。
 
-```js
-await SonoraCloud.signUp(...)
-await SonoraCloud.createVoicePost(...)
-await SonoraCloud.createRequest(...)
-await SonoraCloud.createApplication(...)
-```
+次の順に動作を確認してください。
 
-設定がない場合は既存のIndexedDBが使われるため、ローカル開発を止めずに段階移行できます。
+1. ナビゲーションが `Cloud` 表示になる
+2. メールアドレスと6文字以上のパスワードでアカウントを作る
+3. 確認メールが有効な場合は、メール内のリンクを開いてログインする
+4. 鼻歌を録音して公開し、Dashboardの `voice_posts` とStorageを確認する
+5. 募集を公開し、別アカウントから音声付きで応募する
+
+アバターを押すとCloud接続時はログアウトします。AppleログインはProvider設定をまだ行っていないため、メール・パスワード認証を使用してください。
 
 ## セキュリティ上の禁止事項
 
@@ -104,4 +105,3 @@ await SonoraCloud.createApplication(...)
 - AI APIやStripeのSecret Keyを `supabase-config.js` へ入れない
 - RLSを無効にしない
 - 採用権限を画面表示だけで制御しない
-

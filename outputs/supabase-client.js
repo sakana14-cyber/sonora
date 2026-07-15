@@ -35,6 +35,12 @@
     return data.user;
   }
 
+  function onAuthStateChange(callback) {
+    if (!client) return { unsubscribe() {} };
+    const { data } = client.auth.onAuthStateChange((_event, session) => callback(session?.user || null));
+    return data.subscription;
+  }
+
   async function signUp({ email, password, displayName }) {
     const data = throwIfError(await requireClient().auth.signUp({
       email,
@@ -179,6 +185,7 @@
     enabled: Boolean(client),
     client,
     getUser,
+    onAuthStateChange,
     signUp,
     signIn,
     signOut,
